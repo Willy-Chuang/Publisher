@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Publisher</string>
+    <string name="button_send">送出</string>
+    <string name="editText_content">請輸入文章內容</string>
+    <string name="editText_tag">請輸入標籤</string>
+    <string name="editText_title">請輸入文章標題</string>
 </resources>
