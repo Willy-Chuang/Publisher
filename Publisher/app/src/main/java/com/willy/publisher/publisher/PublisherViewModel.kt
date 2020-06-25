@@ -10,8 +10,6 @@ import com.willy.publisher.data.Articles
 
 class PublisherViewModel : ViewModel() {
 
-    private val db = FirebaseFirestore.getInstance()
-
     private val _articles = MutableLiveData<MutableList<Articles>>()
 
     val articles : MutableLiveData<MutableList<Articles>>
@@ -22,10 +20,8 @@ class PublisherViewModel : ViewModel() {
         getArticles()
     }
 
-
-
-
-    private fun getArticles(){
+    fun getArticles(){
+        val db = FirebaseFirestore.getInstance()
         db.collection("articles")
             .orderBy("createdTime", Query.Direction.DESCENDING)
             .get()
@@ -34,7 +30,7 @@ class PublisherViewModel : ViewModel() {
                 for (document in result) {
 
                     val article = Articles (
-                    content = document.getString("content"),
+                        content = document.getString("content"),
                         title = document.getString("title"),
                         tag =  document.getString("tag"),
                         createdTime = TimeUtil.StampToDate(document.getLong("createdTime") as Long),
@@ -53,6 +49,5 @@ class PublisherViewModel : ViewModel() {
             }
 
     }
-
 
 }

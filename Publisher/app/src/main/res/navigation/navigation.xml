@@ -10,5 +10,12 @@
         android:layout="@layout/fragment_publisher" >
     </fragment>
 
+    <dialog
+        android:id="@+id/navigation_dialog"
+        android:name="com.willy.publisher.dialog.PublishDialog"
+        android:label="AddArticleDialog">
+
+    </dialog>
+
 
 </navigation>
