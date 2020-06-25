@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.willy.publisher.TimeUtil
 import com.willy.publisher.data.Articles
 
@@ -26,6 +27,7 @@ class PublisherViewModel : ViewModel() {
 
     private fun getArticles(){
         db.collection("articles")
+            .orderBy("createdTime", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { result ->
                 var listOfArticle = mutableListOf<Articles>()
