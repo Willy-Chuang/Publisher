@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="FontStyleContent">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="FontStyleTitle">
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

@@ -6,10 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.willy.publisher.R
 import com.willy.publisher.databinding.FragmentPublisherBinding
 
 class PublisherFragment : Fragment() {
+
+    private val viewModel: PublisherViewModel by lazy {
+        ViewModelProviders.of(this).get(PublisherViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +25,21 @@ class PublisherFragment : Fragment() {
         val binding: FragmentPublisherBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_publisher, container, false
         )
+        binding.setLifecycleOwner(this)
+        binding.viewModel = viewModel
+
+        val adapter = PublisherAdapter()
+
+        binding.recyclerView.adapter = adapter
+
+
+
+
+        viewModel.articles.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.submitList(it)
+            }
+        })
 
         return binding.root
 
