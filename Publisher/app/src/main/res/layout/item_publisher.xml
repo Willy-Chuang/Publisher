@@ -20,10 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
             android:maxLines="2"
             android:text="@{data.title}"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="IU『亂穿』竟美出新境界！" />
@@ -55,7 +53,9 @@
             android:id="@+id/text_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:background="@drawable/tag_bg"
             style="@style/FontStyleContent"
             android:text="@{data.tag}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +74,15 @@
             app:layout_constraintTop_toBottomOf="@id/text_created_time"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text="南韓歌手IU（李知恩）無論在歌唱方面或是近期的戲劇作品都有亮眼的成績，但俗話說人無完美、美玉微瑕，曾再跟工作人員的互動影片中坦言自己品味很奇怪，近日在IG上分享了宛如「媽媽們青春時代的玉女歌手」超復古穿搭造型，卻意外美出新境界。" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/littleGrey"
+            app:layout_constraintTop_toBottomOf="@id/text_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,15 +14,15 @@ object FirestoreUtil {
     fun postArticle(newUID: String = "", title: String, tag: String, content: String) {
         val db = FirebaseFirestore.getInstance()
         val post = hashMapOf(
-            "author" to hashMapOf (
-                "email" to "wayne@school.appworks.tw" ,
-                "id" to "waynechen323" ,
+            "author" to hashMapOf(
+                "email" to "wayne@school.appworks.tw",
+                "id" to "waynechen323",
                 "name" to "AKA小安老師"
-            ) ,
+            ),
             "title" to title,
-            "content" to content ,
+            "content" to content,
             "createdTime" to Calendar.getInstance()
-                . timeInMillis ,
+                .timeInMillis,
             "id" to newUID,
             "tag" to tag
         )

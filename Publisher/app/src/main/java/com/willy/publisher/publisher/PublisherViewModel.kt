@@ -12,15 +12,17 @@ class PublisherViewModel : ViewModel() {
 
     private val _articles = MutableLiveData<MutableList<Articles>>()
 
-    val articles : MutableLiveData<MutableList<Articles>>
-        get()= _articles
+    val articles: MutableLiveData<MutableList<Articles>>
+        get() = _articles
 
 
-    init{
+    init {
         getArticles()
     }
 
-    fun getArticles(){
+    // get all articles on firestore in the order of time
+
+    fun getArticles() {
         val db = FirebaseFirestore.getInstance()
         db.collection("articles")
             .orderBy("createdTime", Query.Direction.DESCENDING)
@@ -29,10 +31,10 @@ class PublisherViewModel : ViewModel() {
                 var listOfArticle = mutableListOf<Articles>()
                 for (document in result) {
 
-                    val article = Articles (
+                    val article = Articles(
                         content = document.getString("content"),
                         title = document.getString("title"),
-                        tag =  document.getString("tag"),
+                        tag = document.getString("tag"),
                         createdTime = TimeUtil.StampToDate(document.getLong("createdTime") as Long),
                         authorName = document.getString("author.name")
                     )

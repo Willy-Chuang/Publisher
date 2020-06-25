@@ -10,7 +10,7 @@ import com.willy.publisher.databinding.ItemPublisherBinding
 
 class PublisherAdapter : ListAdapter<Articles, PublisherAdapter.PublisherViewHolder>(DiffCallback) {
 
-    class PublisherViewHolder(private var binding: ItemPublisherBinding):
+    class PublisherViewHolder(private var binding: ItemPublisherBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(articles: Articles) {
             articles.let {
@@ -24,6 +24,7 @@ class PublisherAdapter : ListAdapter<Articles, PublisherAdapter.PublisherViewHol
         override fun areItemsTheSame(oldItem: Articles, newItem: Articles): Boolean {
             return oldItem === newItem
         }
+
         override fun areContentsTheSame(oldItem: Articles, newItem: Articles): Boolean {
             return oldItem == newItem
         }
@@ -32,11 +33,14 @@ class PublisherAdapter : ListAdapter<Articles, PublisherAdapter.PublisherViewHol
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PublisherViewHolder {
         return PublisherViewHolder(
             ItemPublisherBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false))
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
     }
 
 
     override fun onBindViewHolder(holder: PublisherViewHolder, position: Int) {
 
-        holder.bind(getItem(position))    }
+        holder.bind(getItem(position))
+    }
 }

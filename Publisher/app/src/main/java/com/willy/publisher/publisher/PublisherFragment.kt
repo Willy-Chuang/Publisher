@@ -33,13 +33,9 @@ class PublisherFragment : Fragment() {
 
         binding.recyclerView.adapter = adapter
 
-        binding.addButton.setOnClickListener{
+        binding.addButton.setOnClickListener {
             findNavController().navigate(R.id.navigation_dialog)
         }
-
-
-
-
 
 
         viewModel.articles.observe(viewLifecycleOwner, Observer {

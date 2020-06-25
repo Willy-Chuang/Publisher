@@ -35,7 +35,9 @@ class PublishDialog : DialogFragment() {
 
         binding.viewModel = viewModel
 
+        //Post text value to firestore
         binding.buttonSend.setOnClickListener {
+            //            viewModel.checkInput()
             FirestoreUtil.postArticle(
                 "",
                 viewModel.enterTitle.value.toString(),
@@ -44,6 +46,8 @@ class PublishDialog : DialogFragment() {
             )
             Handler().postDelayed({ findNavController().navigate(R.id.navigation_publisher) }, 500)
         }
+
+        //Test if value is input
 
         viewModel.enterTitle.observe(viewLifecycleOwner, Observer {
             Log.i("EditText", it)

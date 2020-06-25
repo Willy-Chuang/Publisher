@@ -9,13 +9,13 @@ data class Articles(
     var content: String? = "",
     val createdTime: String? = "",
     val id: String? = "",
-    val tag: String? ="",
+    val tag: String? = "",
     val authorName: String? = ""
-): Parcelable
+) : Parcelable
 
 @Parcelize
 data class Author(
     val email: String? = "",
     val id: String? = "",
-    val name: String? =""
-): Parcelable
+    val name: String? = ""
+) : Parcelable

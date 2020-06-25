@@ -13,7 +13,7 @@ import com.willy.publisher.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var navController : NavController
+    lateinit var navController: NavController
     lateinit var binding: ActivityMainBinding
 
     private val viewModel: MainViewModel by lazy {
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         navController = findNavController(R.id.myNavHostFragment)
 

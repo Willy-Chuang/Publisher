@@ -10,6 +10,7 @@ object TimeUtil {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         return simpleDateFormat.format(Date(time))
     }
+
     @JvmStatic
     fun DateToStamp(date: String, locale: Locale): Long {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", locale)
