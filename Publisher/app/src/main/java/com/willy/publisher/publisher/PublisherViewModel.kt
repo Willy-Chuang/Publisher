@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
+import com.willy.publisher.TimeUtil
 import com.willy.publisher.data.Articles
 
 class PublisherViewModel : ViewModel() {
@@ -34,7 +35,7 @@ class PublisherViewModel : ViewModel() {
                     content = document.getString("content"),
                         title = document.getString("title"),
                         tag =  document.getString("tag"),
-                        createdTime = document.getLong("createdTime"),
+                        createdTime = TimeUtil.StampToDate(document.getLong("createdTime") as Long),
                         authorName = document.getString("author.name")
                     )
                     Log.d("TAG", "${document.id} => ${document.data}")

@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class Articles(
     val title: String? = "",
     var content: String? = "",
-    val createdTime: Long? = 0,
+    val createdTime: String? = "",
     val id: String? = "",
     val tag: String? ="",
     val authorName: String? = ""
